@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 build 'PES2UG22CS904_1'
-                sh 'g++ wrongfile.cpp -o output'  // Intentional error (wrong file name)
+                sh 'g++ main.cpp -o output'  // Correct file name
             }
         }
 
@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'deploy'
+                echo 'Deploying application...'
             }
         }
     }
