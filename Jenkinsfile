@@ -1,18 +1,10 @@
 pipeline {
     agent any
     stages {
-        // stage('Clone repository') {
-        //     steps {
-        //         checkout([$class: 'GitSCM', 
-        //         branches: [[name: '*/main']], 
-        //         userRemoteConfigs: [[url: 'https://github.com/Jatinsharma158/Jenkins.git']]])
-        //     }
-        // }
-
         stage('Build') {
             steps {
                 build 'PES2UG22CS904_1'
-                sh 'g++ main.cpp -o output'
+                sh 'g++ wrongfile.cpp -o output'  // Intentional error (wrong file name)
             }
         }
 
@@ -30,7 +22,7 @@ pipeline {
     }
     post {
         failure {
-            error 'Pipeline failed'
+            echo 'Pipeline failed'
         }
     }
 }
